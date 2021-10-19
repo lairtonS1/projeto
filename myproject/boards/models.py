@@ -18,11 +18,14 @@ class Topic (models.Model):
     last_update = models.DateTimeField(auto_now_add=True)
     starter = models.ForeignKey(User, related_name='topics', on_delete=models.CASCADE)
     board = models.ForeignKey(Board, related_name='topics', on_delete=models.CASCADE)
+    objetos = models.Manager()
 
 
 class Post(models.Model):
     message = models.TextField(max_length=4000)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
     created_by = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     updated_by = models.ForeignKey(User, related_name='+', null=True, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, related_name="posts", on_delete=models.CASCADE)
+    objetos = models.Manager()

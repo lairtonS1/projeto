@@ -7,5 +7,30 @@
 <li class="breadcrumb-item active">{{board.name}}</li>
 {% endblock %}
 
-{%block content %}
+{% block content %}
+<div class="mb-4">
+  <a href="{% url 'new_topic' board.id %}" class="btn btn-primary">New Topic</a>
+</div>
+<table class="table">
+  <thead class="thead-inverse">
+  </thead>
+  <tr>
+    <th>Topics</th>
+    <th>Starter</th>
+    <th>Replies</th>
+    <th>Views</th>
+    <th>Last Update</th>
+  </tr>
+  <tbody>
+    {% for topic in board.topics.all%}
+    <tr>
+      <th>{{topic.subject}}</th>
+      <th>{{topic.starter.username}}</th>
+      <th>0</th>
+      <th>0</th>
+      <th>{{topic.last_update}}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
