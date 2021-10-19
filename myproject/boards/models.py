@@ -7,7 +7,8 @@ from django.contrib.auth.models import User
 class Board (models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=200)
-
+    objetos = models.Manager()
+    
     def __str__(self):
         return self.name
 

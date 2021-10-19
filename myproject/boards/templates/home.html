@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+      <li class="breadcrumb-item active">Boards</li>
+{% endblock %}
+{% block content %}
+      <table class="table" border="1">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Board</th>
+                  <th scope="col">Topics</th>
+                  <th scope="col">Posts</th>
+                  <th scope="col">LastPosts</th>
+              </tr>
+         </thead>
+         <tbody>
+              {% for board in response %}
+               <tr>
+                  <td>
+                      <a href="{% url 'board_topics' board.id%}">{{board.name}}</a><br>
+                       <small style="#888">{{board.description}}</small>
+                  </td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+              </tr>
+             {% endfor %}
+             </tbody>
+             </table>
+     {% endblock %}
