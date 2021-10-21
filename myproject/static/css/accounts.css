@@ -1,0 +1,16 @@
+body{
+  background-image: url(../img/fundo_branco.jpg);
+}
+
+.logo {
+  font-family: 'Festive', cursive;
+}
+
+.logo a {
+  color: rgba(255,255,255,0.9);
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
