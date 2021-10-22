@@ -58,13 +58,13 @@ class InvalidSignUpTest(TestCase):
         url = reverse('signup')
         self.response = self.client.post(url, {})
          
-    def sign_up_status_code(self):
+    def test_sign_up_status_code(self):
         self.assertEquals(self.response.status_code, 200)
          
     def test_form_errors(self):
         form = self.response.context.get('form')
         self.assertTrue(form.errors)
      
-    def does_not_create_user(self):
-        self.assertFalse(User.objects.exists)
+    def test_does_not_create_user(self):
+        self.assertFalse(User.objects.exists())
          
