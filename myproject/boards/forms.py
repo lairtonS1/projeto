@@ -1,11 +1,18 @@
 from django import forms
-from boards.models import Topic
+from boards.models import Topic, Post
+
 
 class NewTopicForm(forms.ModelForm):
     message = forms.CharField(widget=forms.Textarea(
-    attrs={'rows':5, 'placeholder':'What is on your mind?'}),
-    help_text='The max length of the text is 4000', max_length=4000)
+        attrs={'rows': 5, 'placeholder': 'What is on your mind?'}),
+        help_text='The max length of the text is 4000', max_length=4000)
+
     class Meta():
         model = Topic
         fields = ['subject', 'message']
-        
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['message', ]

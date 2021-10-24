@@ -23,13 +23,13 @@
   </thead>
   <tbody>
     {% for topic in board.topics.all%}
-    <tr>
-      <th>{{topic.subject}}</th>
-      <th>{{topic.starter.username}}</th>
-      <th>0</th>
-      <th>0</th>
-      <th>{{topic.last_update}}</th>
-    </tr>
+   <tr>
+    <td><a href="{% url 'topic_posts' board.pk topic.pk %}">{{ topic.subject }}</a></td>
+    <td>{{ topic.starter.username }}</td>
+    <td>0</td>
+    <td>0</td>
+    <td>{{ topic.last_updated }}</td>
+  </tr>
     {% endfor %}
   </tbody>
 </table>
