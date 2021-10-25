@@ -44,6 +44,6 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('board/<int:board_id>/', views.board_topics, name="board_topics"),
     path("board/<int:board_id>/new/", views.new_topic, name="new_topic"),
-    path('board/<int:id>/topics/<int:topics_id>/', views.topic_posts, name="topic_posts"),
+    path('board/<int:id>/topics/<int:topics_id>', views.topic_posts, name="topic_posts"),
     path('board/<int:id>/topics/<int:topics_id>/reply', views.reply_topic, name="reply_topic")
 ]
